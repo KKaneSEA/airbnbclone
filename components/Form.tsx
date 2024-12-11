@@ -1,9 +1,7 @@
-import React from "react";
+"use server";
 
-const createUser = async () => {
-  "use server";
-  console.log("creating user...");
-};
+import React from "react";
+import { createUser } from "@/utils/actions";
 
 function Form() {
   return (
