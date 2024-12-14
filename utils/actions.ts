@@ -10,8 +10,9 @@ type User = {
   lastName: string;
 };
 
-export const createUser = async (formData: FormData) => {
+export const createUser = async (prevState: any, formData: FormData) => {
   "use server";
+  console.log(prevState);
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const firstName = formData.get("firstName") as string;
@@ -23,10 +24,16 @@ export const createUser = async (formData: FormData) => {
   try {
     await saveUser(newUser);
     revalidatePath("/actions");
+
     //or redirect option
     // redirect("/");
+
+    //some logic
+
+    return "user created successfully...";
   } catch (error) {
     console.log(error);
+    return "failed to create a user...";
   }
 };
 
