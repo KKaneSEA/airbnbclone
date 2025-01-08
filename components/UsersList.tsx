@@ -8,7 +8,7 @@ async function UsersList() {
   return (
     <div className="mt-4">
       {users.length ? (
-        <div>
+        <div className="max-w-lg">
           {users.map((user) => {
             return (
               <h4
